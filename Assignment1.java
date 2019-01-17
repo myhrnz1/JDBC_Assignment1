@@ -20,5 +20,16 @@ public class Assignment1 {
 
   public static void main (String[] args) throws Exception {
     Connection conn = getConnection();
+
+    Statement statement = conn.createStatement();
+
+    ResultSet res = statement.executeQuery("select * from people");
+
+    while(res.next()) {
+
+    System.out.println(res.getString("person_id") + ": " + 
+                       res.getString("firstname") + " " + 
+                       res.getString("lastname"));
+    }
   }
 }
